@@ -1,0 +1,42 @@
+{
+  "topic": "植物大战僵尸",
+  "checked_at": "2026-09-13",
+  "scope": "本次核实的官方与官方入驻页面；不是自动实时更新，也不代表穷尽所有版本",
+  "updates": [
+    {
+      "game": "植物大战僵尸2 中国版",
+      "status": "released",
+      "date": "2026-09-01",
+      "fact": "官方入驻的 TapTap 页面标示版本 4.2.3；开发者公告介绍第十八个主线世界月球基地与十三周年庆典。月球内容涉及宇宙体系植物、重力树、宇宙苔藓、采集终端等。",
+      "source": "https://www.taptap.cn/app/54031"
+    },
+    {
+      "game": "植物大战僵尸2 中国版",
+      "status": "announced_not_released_as_of_check_date",
+      "date": "2026-09-25",
+      "fact": "官方入驻页面预告 9 月 25 日更新月球基地第二章节。截至核实日期该日期尚未到来，不可说成已经上线。",
+      "source": "https://www.taptap.cn/app/54031"
+    },
+    {
+      "game": "Plants vs. Zombies: Replanted",
+      "status": "official_reference",
+      "fact": "EA 将 Replanted 介绍为原作的重制版本；与中国版植物大战僵尸2不是同一款游戏，不能混用版本、植物数值或更新内容。",
+      "source": "https://help.ea.com/en/articles/plants-vs-zombies/plants-vs-zombies-replanted/how-to-play/"
+    }
+  ],
+  "learning_prompts": [
+    {"english": "sun", "chinese": "阳光"},
+    {"english": "plant", "chinese": "植物"},
+    {"english": "sunflower", "chinese": "向日葵"},
+    {"english": "moon", "chinese": "月亮"},
+    {"english": "I like plants.", "chinese": "我喜欢植物。"},
+    {"english": "I need sun.", "chinese": "我需要阳光。"},
+    {"english": "This is a sunflower.", "chinese": "这是一株向日葵。"}
+  ],
+  "use_rules": [
+    "用于短时间英语口语练习，不引导充值、购买或延长游戏时间。",
+    "这些英语句子是本应用自编练习，不是游戏官方台词。",
+    "未确认消息要说明不确定；查证日期之后的新进展不凭空编造。",
+    "不向搜索或新闻网站发送孩子档案；只发送公开游戏名查询。"
+  ]
+}

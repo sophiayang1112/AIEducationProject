@@ -1,0 +1,56 @@
+# Template: move to .github/workflows/tests.yml after authorizing workflow writes.
+name: Tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MYPROFESSOR_DATA: ${{ runner.temp }}/myprofessor-test-data
+      QWEN_API_KEY: test-only-not-a-real-key
+      PLAYWRIGHT_CHANNEL: chromium
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Unit regressions
+        run: |
+          python -m unittest test-learning-server.py test-learning-voice.py test-learning-realtime.py
+          npm test
+      - name: Start isolated local server
+        run: |
+          python learning-server.py --port 8765 > "$RUNNER_TEMP/myprofessor-server.log" 2>&1 &
+          python - <<'PY'
+          import time
+          from urllib.request import urlopen
+          for _ in range(30):
+              try:
+                  with urlopen('http://127.0.0.1:8765/api/health', timeout=1) as response:
+                      assert response.status == 200
+                  break
+              except OSError:
+                  time.sleep(.3)
+          else:
+              raise SystemExit('Test server failed to start')
+          PY
+      - name: Browser regressions with synthetic devices and mocked cloud APIs
+        run: |
+          npm run test:realtime
+          npm run test:recovery
+          npm run test:interaction
+          npm run test:layout
+          npm run test:motion

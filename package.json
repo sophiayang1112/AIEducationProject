@@ -1,0 +1,16 @@
+{
+  "name": "my-professor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first learning companions with realtime speech and camera-assisted tutoring",
+  "scripts": {
+    "test": "node test-speech-player.cjs",
+    "test:realtime": "node test-realtime-interaction.cjs",
+    "test:recovery": "node test-speech-recovery.cjs",
+    "test:interaction": "node test-interaction.cjs",
+    "test:layout": "node test-ensemble-layout.cjs",
+    "test:motion": "node test-teacher-motion.cjs"
+  },
+  "devDependencies": {"playwright": "1.62.1"},
+  "engines": {"node": ">=20"}
+}

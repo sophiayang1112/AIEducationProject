@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>myProfessor · 英语 数学 语文</title>
+  <link rel="stylesheet" href="learning-assets/style.css">
+  <link rel="stylesheet" href="learning-assets/chat.css">
+  <link rel="stylesheet" href="learning-assets/avatar.css">
+  <link rel="stylesheet" href="learning-assets/ensemble.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="multiplication-game.html"><img src="learning-assets/friend-face.webp" alt=""><span>myProfessor<small>每天进步一点点</small></span></a>
+    <div class="header-actions"><span class="stars">★ <b id="totalStars">0</b><span>颗学习星</span></span><button id="sound" class="icon-button" aria-label="关闭声音" title="关闭声音">♫</button></div>
+  </header>
+  <main>
+    <section class="welcome" aria-label="学习乐园">
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="sun" aria-hidden="true"></div>
+      <div class="welcome-copy"><span class="eyebrow">和伙伴一起，发现大世界</span><h1>今天也要<br>闪闪发光呀！<span class="spark">✦</span></h1><p>读一个单词，解一道题，认识一个新汉字。</p><span class="welcome-note">每一次尝试，都值得一颗星</span></div>
+      <div class="welcome-character"><span class="speech">同学，敢来挑战我吗？</span><img src="learning-assets/friend-run.webp" alt="伙伴背着书包向你跑来"></div>
+      <div class="hill hill-back"></div><div class="hill hill-front"></div><div class="ground-label" aria-hidden="true">A B C &nbsp; · &nbsp; 1 2 3 &nbsp; · &nbsp; 天 地 人</div>
+    </section>
+    <section class="learning">
+      <div class="section-title"><h2>选一扇门，开启小冒险</h2><button id="openInteraction" class="primary" aria-controls="chatPanel" aria-expanded="false">实时互动 ↗</button></div>
+      <div class="subjects" role="tablist" aria-label="选择学科">
+        <button class="subject english" role="tab" id="tab-english" aria-controls="practice" aria-selected="false" data-subject="english"><span class="subject-art letters" aria-hidden="true">A<span>b</span>c</span><span><strong>英语小世界</strong><small>听一听 · 说一说</small></span><span class="subject-arrow">↗</span></button>
+        <button class="subject math active" role="tab" id="tab-math" aria-controls="practice" aria-selected="true" data-subject="math"><span class="subject-art numbers" aria-hidden="true">2<span>＋</span>3</span><span><strong>数学游乐场</strong><small>想一想 · 算一算</small></span><span class="subject-arrow">↗</span></button>
+        <button class="subject chinese" role="tab" id="tab-chinese" aria-controls="practice" aria-selected="false" data-subject="chinese"><span class="subject-art hanzi" aria-hidden="true">文</span><span><strong>汉字故事屋</strong><small>认一认 · 读一读</small></span><span class="subject-arrow">↗</span></button>
+      </div>
+      <div class="play-layout">
+        <div class="practice-column">
+        <section id="chatPanel" class="chat-panel" hidden aria-label="实时互动">
+          <div class="stage-top"><button id="exitInteraction" class="icon-button" aria-label="返回学习乐园" title="返回学习乐园">←</button><div><h2 id="interactionTitle">伙伴同场</h2><span id="chatConnection">正在连接学习伙伴…</span></div><button id="openMemory" class="icon-button" title="学习记忆" aria-label="查看学习记忆">▤</button></div>
+          <div class="avatar-world" id="avatarWorld" data-character="dark" data-state="idle">
+            <div class="character-title"><span id="characterBond">同学的好朋友</span><h3 id="characterName">星星伙伴</h3></div>
+            <div id="ensembleStage" class="ensemble-stage" aria-label="一起互动的伙伴">
+              <figure data-cast="dark"><div class="cast-face" role="img" aria-label="星星伙伴"></div><figcaption>星星伙伴</figcaption></figure>
+              <figure data-cast="challenger"><div class="cast-face" role="img" aria-label="探索伙伴"></div><figcaption>探索伙伴</figcaption></figure>
+              <figure data-cast="light"><div class="cast-face" role="img" aria-label="阳光伙伴"></div><figcaption>阳光伙伴</figcaption></figure>
+              <figure data-cast="chinese" hidden><div class="cast-face" role="img" aria-label="语文老师"></div><figcaption>语文老师</figcaption></figure>
+              <figure data-cast="english" hidden><div class="cast-face" role="img" aria-label="英语老师"></div><figcaption>英语老师</figcaption></figure>
+              <figure data-cast="math" hidden><div class="cast-face" role="img" aria-label="数学老师"></div><figcaption>数学老师</figcaption></figure>
+            </div>
+            <div class="portrait-wrap"><div id="avatarPortrait" class="avatar-portrait" role="img" aria-label="星星伙伴的动画头像"><img id="avatarFallback" src="learning-assets/friend-face.webp" alt=""></div><div class="thinking-dots" aria-hidden="true"><i></i><i></i><i></i></div></div>
+            <p id="avatarCaption" class="avatar-caption" hidden aria-hidden="true"></p>
+            <div class="character-switch" aria-label="选择同场或一对一互动"><button id="groupScene" aria-pressed="true">伙伴同场</button><button data-character-choice="dark" aria-pressed="false" title="和星星伙伴单独聊天">星星伙伴</button><button data-character-choice="challenger" aria-pressed="false" title="和探索伙伴单独聊天">探索伙伴</button><button data-character-choice="light" aria-pressed="false" title="和阳光伙伴单独聊天">阳光伙伴</button><button data-character-choice="chinese" aria-pressed="false" title="语文老师一对一语文答疑">语文老师</button><button data-character-choice="english" aria-pressed="false" title="英语老师一对一英语答疑">英语老师</button><button data-character-choice="math" aria-pressed="false" title="数学老师一对一数学答疑">数学老师</button></div>
+          </div>
+          <div id="cameraPanel" class="camera-panel" hidden><video id="cameraPreview" autoplay muted playsinline aria-label="摄像头本机预览"></video><button id="captureFrame" class="reference-button">给伙伴看这一帧</button></div>
+          <div class="stage-bottom"><div class="live-actions"><button id="cameraToggle" class="icon-button" title="打开摄像头" aria-label="打开摄像头">▣</button><button id="startLive" class="primary" disabled>开始视频互动</button><button id="toggleChat" class="icon-button" aria-expanded="false" aria-controls="chatDrawer" aria-label="展开对话记录" title="对话记录与打字">☰</button><details class="stage-settings"><summary aria-label="互动设置" title="互动设置">⚙</summary><div class="settings-content"><div class="chat-controls"><label><input type="checkbox" id="autoRead" checked> 自然声音</label><label for="voiceLanguage">我说</label><select id="voiceLanguage"><option value="en-US">English</option><option value="zh-CN">中文</option></select></div><label class="observe-toggle"><input id="adventureMode" type="checkbox" checked> 英语口语冒险剧情</label><label class="observe-toggle"><input id="autoObserve" type="checkbox" checked> 互动时自动观察</label><p>互动时发送当前画面，空闲时每 8 秒观察；不保存原始照片或视频。</p><p id="voiceLabel" class="voice-label">自然合成声音 · AI 学习伙伴</p></div></details></div><div class="chat-status-row"><p id="chatStatus" role="status">AI 角色互动 · 摄像头尚未开启</p><button id="retryChat" class="reference-button" hidden>重试</button><button id="retryVoice" class="reference-button" hidden>重试声音</button><button id="stopReading" class="reference-button" hidden>停止朗读</button></div></div>
+          <div id="chatDrawer" class="chat-drawer" hidden>
+          <div class="dialog-heading"><h2>互动记录</h2><button id="closeChatDrawer" class="icon-button" aria-label="收起对话记录">×</button></div>
+          <button id="olderMessages" class="reference-button" hidden>查看更早的对话</button>
+          <div id="chatMessages" class="chat-messages" role="log" aria-label="互动记录" aria-live="off"><div class="chat-bubble buddy">我是星星伙伴，同学的好朋友。一起迎接探索伙伴的挑战吧！</div></div>
+          <div class="chat-prompts"><button data-prompt="Hello! Let's practice saying hello.">打个招呼</button><button data-prompt="Let's play a simple English word guessing game.">猜词游戏</button><button data-prompt="Let's pretend we are ordering fruit at a shop. Use very easy English.">水果小店</button></div>
+          <form id="chatForm" class="chat-form"><button type="button" id="microphone" class="icon-button" title="语音输入" aria-label="开始语音输入">♩</button><label class="sr-only" for="chatInput">给伙伴的消息</label><textarea id="chatInput" rows="2" maxlength="2000" placeholder="Hi, Companion!" required></textarea><button id="chatSend" class="primary" type="submit" disabled>发送 ↑</button></form>
+          </div>
+        </section>
+        <section id="practice" class="practice" role="tabpanel" aria-labelledby="tab-math">
+          <div class="practice-top"><h2 id="practiceTitle">数学游乐场</h2><div class="mode-picker"><label for="mode">练习</label><select id="mode"></select></div></div>
+          <div class="round-status"><span id="questionCount">第 1 / 10 题</span><div class="progress"><div id="progressBar"></div></div><span class="round-stars">★ <b id="roundStars">0</b></span></div>
+          <div id="questionArea"><p id="questionHint" class="question-hint"></p><div class="question-line"><h3 id="question"></h3><button id="listen" class="icon-button" aria-label="朗读题目" title="朗读题目">♫</button></div><div id="options" class="options"></div></div>
+          <div id="result" class="result" hidden><div class="result-trophy" aria-hidden="true">★</div><h3>小小冒险家，完成啦！</h3><p id="resultText"></p><button id="again" class="primary">再来一轮 ↗</button></div>
+          <div class="feedback-row"><p id="feedback" role="status" aria-live="polite">不着急，想一想再回答。</p><button id="next" class="primary" disabled>下一题 →</button></div>
+        </section>
+        </div>
+        <aside class="companion"><div class="companion-note" id="companionNote">我陪你一起想！<br>小脑袋，转起来～</div><img id="companion" src="learning-assets/friend-cheer.webp" alt="伙伴为你加油"><div class="collection"><span>我的冒险足迹</span><div id="stamps" class="stamps"></div><p id="collectionText">完成一轮，点亮学科印章</p></div><button id="tableButton" class="reference-button">▦ 看看九九乘法表</button></aside>
+      </div>
+    </section>
+    <footer>小小的好奇心，也能探索大大的世界。</footer>
+  </main>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <dialog id="tableDialog"><div class="dialog-heading"><h2>九九乘法表</h2><button id="closeTable" class="icon-button" aria-label="关闭乘法表">×</button></div><div class="table-scroll"><table id="multiplicationTable"></table></div></dialog>
+  <script src="learning-assets/app.js"></script>
+  <dialog id="memoryDialog"><div class="dialog-heading"><h2>学习记忆</h2><button id="closeMemory" class="icon-button" aria-label="关闭学习记忆">×</button></div><p id="memoryCount"></p><pre id="memoryContent">还没有学习笔记，我们从打招呼开始吧。</pre><p class="memory-help">聊天和历次学习笔记保存在这台电脑，不自动过期。自动备份也在本机，请定期导出到其他设备。学习笔记是摘要，完整对话可回看和检索。</p><button id="exportMemory" class="primary">导出完整记忆 ↓</button><p id="memoryStatus" role="status"></p></dialog>
+  <script src="learning-assets/speech-player.js"></script>
+  <script src="learning-assets/realtime-microphone.js"></script>
+  <script src="learning-assets/chat.js"></script>
+  <script src="learning-assets/avatar.js"></script>
+</body>
+</html>

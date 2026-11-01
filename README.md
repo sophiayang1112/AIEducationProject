@@ -1,6 +1,6 @@
-# myProfessor | AI Learning Companion
+# AI Education Project
 
-A local-first learning application combining multiple AI characters, real-time speech interaction, camera-assisted tutoring, and persistent learning memory.
+A local-first, multimodal AI learning assistant combining multiple teaching characters, real-time voice interaction, camera-assisted tutoring, and persistent conversation memory.
 
 **Stack:** Python 3.10+, JavaScript, HTML/CSS, SQLite, WebSocket, AudioWorklet, Qwen APIs, optional DeepSeek text generation.
 

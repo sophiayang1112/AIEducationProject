@@ -1,4 +1,4 @@
-# myProfessor
+# AI Education Project
 
 **本地优先的多角色学习伙伴：实时语音互动、摄像头辅助答疑与持续学习记忆。**
 
@@ -28,8 +28,8 @@ myProfessor 将英语口语、数学练习、语文学习与多角色对话整�
 推荐 Windows + Python 3.10/3.11 + 当前桌面 Chrome。核心服务也可直接运行在其他具备 Python 的系统上；快捷启动脚本仅面向 Windows。
 
 ```powershell
-git clone https://github.com/sophiayang1112/AIEducation.git
-cd AIEducation
+git clone https://github.com/sophiayang1112/AIEducationProject.git
+cd AIEducationProject
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 New-Item -ItemType Directory "$env:LOCALAPPDATA\MyProfessor" -Force

@@ -4,11 +4,11 @@ A local-first learning application combining multiple AI characters, real-time s
 
 **Stack:** Python 3.10+, JavaScript, HTML/CSS, SQLite, WebSocket, AudioWorklet, Qwen APIs, optional DeepSeek text generation.
 
-## Project provenance
+## About this project
 
-A personal assignment completed with collaboration, presented in Sophia Yang's portfolio. The source project is [SuperGokou/myProfessor](https://github.com/SuperGokou/myProfessor). Original authorship and team credit are retained; hosting this copy does not imply sole authorship. The original project may require access permission.
+A personal assignment completed with collaboration, presented in Sophia Yang's portfolio.
 
-Sophia Yang has confirmed that she has the original owner's permission to publish a portfolio copy. No open-source license has been added: permission to host this copy does not grant unrestricted reuse of the code, voices, images, or third-party materials.
+No open-source license has been added. Public availability does not grant unrestricted reuse of the code, voices, images, or third-party materials.
 
 ## Features
 

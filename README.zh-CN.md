@@ -28,8 +28,8 @@ myProfessor 将英语口语、数学练习、语文学习与多角色对话整�
 推荐 Windows + Python 3.10/3.11 + 当前桌面 Chrome。核心服务也可直接运行在其他具备 Python 的系统上；快捷启动脚本仅面向 Windows。
 
 ```powershell
-git clone https://github.com/SuperGokou/myProfessor.git
-cd myProfessor
+git clone https://github.com/sophiayang1112/AIEducation.git
+cd AIEducation
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 New-Item -ItemType Directory "$env:LOCALAPPDATA\MyProfessor" -Force
